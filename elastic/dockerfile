@@ -1,0 +1,14 @@
+# Utilise l'image officielle d'Elasticsearch
+FROM docker.elastic.co/elasticsearch/elasticsearch:8.10.2
+
+# Réglage des variables d'environnement nécessaires
+ENV discovery.type=single-node
+
+# Copie du fichier de configuration, si vous avez des configurations spécifiques
+COPY ./elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml
+
+# Expose le port pour Elasticsearch
+EXPOSE 9200 9300
+
+# Commande par défaut pour lancer Elasticsearch
+CMD ["bin/elasticsearch"]

@@ -1,0 +1,11 @@
+# Utilise l'image officielle de Kibana
+FROM docker.elastic.co/kibana/kibana:8.10.2
+
+# Copie du fichier de configuration Kibana
+COPY ./kibana.yml /usr/share/kibana/config/kibana.yml
+
+# Expose le port de Kibana
+EXPOSE 5601
+
+# Commande par défaut pour lancer Kibana
+CMD ["bin/kibana"]

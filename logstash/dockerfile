@@ -1,0 +1,11 @@
+# Utilise l'image officielle de Logstash
+FROM docker.elastic.co/logstash/logstash:8.10.2
+
+# Copie de la configuration du pipeline Logstash
+COPY ./logstash.conf /usr/share/logstash/pipeline/logstash.conf
+
+# Expose le port de Logstash
+EXPOSE 5044 9600
+
+# Commande pour lancer Logstash
+CMD ["bin/logstash", "-f", "/usr/share/logstash/pipeline/logstash.conf"]
